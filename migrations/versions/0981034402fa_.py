@@ -8,7 +8,7 @@ Create Date: 2020-02-05 15:19:58.535647
 from alembic import op
 import sqlalchemy as sa
 import sqlalchemy_utils
-from user.models import User
+from user import models
 
 # revision identifiers, used by Alembic.
 revision = '0981034402fa'
@@ -24,8 +24,8 @@ def upgrade():
     sa.Column('name', sa.String(length=30), nullable=True),
     sa.Column('phone', sa.String(length=50), nullable=True),
     sa.Column('avatar', sa.String(length=100), nullable=True),
-    sa.Column('gender', sqlalchemy_utils.types.choice.ChoiceType(User.genders), nullable=True),
-    sa.Column('location', sqlalchemy_utils.types.choice.ChoiceType(User.locations), nullable=True),
+    sa.Column('gender', sqlalchemy_utils.types.choice.ChoiceType(models.genders), nullable=True),
+    sa.Column('location', sqlalchemy_utils.types.choice.ChoiceType(models.locations), nullable=True),
     sa.Column('birthday', sa.Date(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )

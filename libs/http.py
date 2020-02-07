@@ -1,5 +1,5 @@
 
-from main import app
+
 import json
 
 def render_json(code=0,data=None):
@@ -9,6 +9,7 @@ def render_json(code=0,data=None):
         'data':data,
     }
 
+    from main import app
     if app.debug:
         json_result = json.dumps(result,ensure_ascii=False,indent=4,sort_keys=True)
     else:
